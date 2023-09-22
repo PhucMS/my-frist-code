@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Background Image</title>
+        <meta charset="utf-8">
+        <style>
+            html,body{
+                margin: 0;
+            }
+            .header{
+                width: 100%;
+                height: 100vh;
+                /* background-image: url(https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80) ; */
+                /* khi ảnh bị lớn quá mất nét dùng hàm bg size chỉnh nhỏ lại sẽ thấy ảnh nguyên vẹn và ảnh sẽ tự động lặp lại */
+                /* background-size: 100% 100%; */
+                /* dùng hàm này để hình k bị lặp lại (nếu thay no-repeat = repeat-x la lặp lại chiều ngang trục tung
+                repeat-x là lặp lại theo chiều dọc) */
+                /* background-repeat: no-repeat ; */
+                /* deg là độ từ 0 đến 360 chuyển màu dần từ 333-ccc */
+                /* background-image:linear-gradient(45deg, #333, #ccc) ; */
+                /* rgba: red,green,blue,alpha- alpha là độ trong suốt từ 0-1 */
+                /* background-image:linear-gradient(0, rgba(0,234,255,0.5), rgba(255,255,255,0.5)), */
+                /* url(https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80); */
+                /* contain là lấy cạnh dài hơn giữa ngang và dọc bức ảnh k bị cắt và để dư ra khung hình nền trắng
+                cover lấy cạnh dài và cắt bức ảnh cho vừa khung hình */
+                /* background-size: contain; */
+                /* background-repeat: no-repeat ; */
+                /* positive: vị trí hình ảnh  */
+                /* background-position: bottom left;
+                background-position: top right; */
+                /* background-position: bottom center; */
+
+                /* nhập tất cả dòng trên vào trong 1 hàng */
+                background: url(https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80) center / contain no-repeat;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header"></div>
+    </body>
+</html>

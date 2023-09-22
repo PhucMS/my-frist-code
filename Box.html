@@ -1,0 +1,50 @@
+<!-- padding border margin -->
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <style>
+            .Box {
+                width: 60px;
+                height: 60px;
+                color: #fff; /* chử trắng */
+                
+                /* 3 dòng này để căn giữa chữ trong box */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                float: left ;
+            }
+            .box1 {
+                background-color: rgb(130, 12, 130);
+                padding: 20px 20px;
+                border-width: 10px ;
+                border-left: 10px ;
+                /* dash là nét đứt */
+                border-style:dashed  ;
+                /* background-clip: padding-box; */
+            }
+            .box2 {
+                background-color: orange;
+                padding-left: 20px;
+                border: 10px solid red;
+                margin-left: 50px;
+
+            }
+            .box3 {
+                background-color: pink;
+                padding-top: 20px;
+                border-top-width: 20px;
+                
+                /* solid là nét liền */
+                border-style:solid  ;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Box là class chugn còn box123 là box riêng của từng lớp  -->
+        <div class="Box box1">Box 1</div>
+        <div class="Box box2">Box 2</div>
+        <div class="Box box3">Box 3</div>
+    </body>
+</html>

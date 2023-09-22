@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Example flex box</title> 
+       <meta charset="utf-8">
+        <style>
+        *{
+            box-sizing: border-box;
+        }
+            html,body{
+                margin: 0;
+                padding: 0;
+                font-size: 14px;
+                font-family: Arial, Helvetica, sans-serif;
+            }   
+            body {
+                background-color: #efefef;
+            }
+            .nav{
+                min-height: 42px;
+                background-color: red;
+                display: flex;
+                justify-content: space-between;
+            }
+            .nav-list{
+                padding-left: 0px;
+                margin: 16px;
+            }
+            .nav-item{
+                color: white;
+                /* xóa dấu chấm phía trước  */
+                list-style: none;
+                /* tạo khoảng trống phía trước */
+                margin: 0 20px;
+                /*xóa ghi trên cùng 1 dòng */
+                display: inline-block;
+            }
+            .form__row{
+                padding: 1px;
+                /* do layout nằm ngang nên dòng này nhìn vào k thay đổi k thay đổi nếu sửa thành inside-flex thì 2 dòng sẽ nằm ngang  */
+                display: flex;
+            }
+            .form__input{
+                flex: 1 ;
+            }
+            .form-container{
+                max-width: 720px;
+                padding: 32px;
+                /* canh giữa */
+                margin: 36px auto 0 auto;
+                background-color: #fff;
+            }
+            .form__label{
+                min-width: 90px;
+            }
+            .column-layout{
+                /* khoảng cách với lề trên là 36px */
+                margin-top: 36px;
+                padding: 12px 0;
+                background-color: #fff;
+                display: flex;
+            }
+            .column-item{
+                padding: 0 20px;
+            }
+            .sidebar-one{
+                flex: 1;
+                /* order là xắp xếp theo thứ tự dc gắn vào để hiển thị lên màn screen */
+                order: 2;
+            } 
+            .sidebar-two{
+                flex: 1;
+                order: 3;
+            }
+            .main-column{
+                /* chiều ngang gấp 3 lần sidebar one two */
+                flex: 3;
+                order: 1;
+            }
+            .feature-layout{
+                margin-top: 36px;
+                display: flex;
+                flex-direction: column;
+                /* tạo khoảng cách giữa các khối bằng nhau vì vậy nên 2 đầu trước và sau sẽ nhỏ ơn 2 khoảng cách ở trong 1 xíu*/
+                justify-content: space-around;
+                /* tất cả khoảng cách bằng nhau kể cả đầu và cuối */
+                /* justify-content: space-evenly; */
+            }
+            /* PC và máy tính bảng khi mở pc thì feature xếp theo chiều ngang"column" và khi mở điện thoại thì feature xếp theo chiều dọc"row" */
+            @media (min-width: 740px) {
+                .feature-layout {
+                    flex-direction: row;
+                }
+            }
+            .feature-item{
+                margin-top: 16px;
+                padding: 12px 16px;
+                /* mỗi feature chiếm 30% diện tích sẽ dư ra khoảng trống giữa các khối */
+                flex-basis: 30%;
+            }
+            
+            .feature-item:nth-child(1) {
+                background-color: rgb(192, 227, 222);
+            }
+
+            .feature-item:nth-child(2) {
+                background-color: rgb(227, 200, 192);
+            }
+
+            .feature-item:nth-child(3) {
+                background-color: rgb(226, 192, 227);
+            }
+            /* wrap layout */
+            .wrap-layout {  
+                background-color: #fff;
+                margin-top: 36px;
+                padding: 12px 0 32px 0;
+                display: flex;
+                justify-content: space-around;
+                /* wrap: xuống dòng, system để mặc định là k xuống dòng nên chỉnh wrap để khi kéo nhỏ cửa sổ lại nó sẽ xuống dòng */
+                flex-wrap: wrap;
+                
+            }
+            .wrap-layout__item{
+                width: 150px;
+                height: 90px;
+                color: #fff;
+                text-align: center;
+                line-height: 90px;
+                background-color: red;
+                font-size: 40px;
+                font-weight: 700px;
+                margin-top: 20px;
+            }
+
+            /* center layout */
+            .center-layout {
+                background-color: rgb(137, 175, 139);
+                margin: 20px auto 20px auto;
+                padding: 32px 0;
+                max-width: 640px;
+                height: 360px;
+                display: flex;
+            }
+
+            .center-item {
+                font-size: 42px;
+                font-weight: 700;
+                /*
+                justify-content: center;
+                align-item: center;
+                cũng cho kết quả tương tự,
+                nhưng cách margin: auto này
+                ngắn gọn hơn
+                */
+                margin: auto;
+            }
+
+            .chart-layout{
+                margin: 20px 0 20px 0;
+                padding: 30px;
+                height: 300px;
+                background-color: #fff;
+                display: flex;
+                /* cách các cột ra để không dính vào nhau */
+                justify-content: space-around;
+                /* hoặc có thể align-seft ở chính nó  */
+                /* align-items: flex-end; */
+            }
+            .chart-item{
+                background-color: red;
+                color: #fff;
+                /* mặc định là flex-start cột sẽ bị đổ xuống flex-end để cột % hướng lên trên */
+                align-self: flex-end;
+                width: 60px;
+                text-align: center;
+                height: var(--percent) ;
+                animation: growth ease-in 0.5s;
+            }
+            /* tạo 1 hàm chuyển động khi refresh lại web */
+            @keyframes growth{
+                from{
+                    /* độ trong suốt = 0 */
+                    opacity: 0;
+                    height: calc(var(--percent)-5 0%);
+                }
+                to{
+                    /* hết trong suốt */
+                    opacity: 1;
+                    height: var(--percent);
+                }
+            }
+            /* End */
+            .the-end {
+                margin: 12px auto 48px auto;
+                padding: 32px 0;
+                max-width: 740px;
+                min-height: 360px;
+                display: flex;
+                /* mặc định là row theo chiều ghi khi đổi thành reverse thì đổi bên endFrist và endSecond lại"nếu k muốn đổi bên thì k cần ghi hàm này" */
+                flex-direction: row-reverse;
+            }
+
+            .the-end__first {
+                padding: 4px 16px;
+                background-color: #fff;
+                flex: 1;
+            }
+
+            .the-end__second {
+                flex: 1;
+                display: flex;
+                /* mặc định là 2 hàm secon theo chều ngag hàm column để 2 hàm nằm theo chiều dọc đè lên nhau */
+                flex-direction: column;
+            }
+
+            .the-end__second-one {
+                flex: 1;
+                padding: 4px 16px;
+                background-color: rgb(227, 192, 214);
+            }
+
+            .the-end__second-two {
+                flex: 1;
+                padding: 4px 16px;
+                background-color: rgb(192, 210, 227);
+            }
+        </style>
+
+    </head>
+    <body>
+        <!-- navbar -->
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">Giới Thiệu</li>
+                <li class="nav-item">Kết Nối</li>
+                <li class="nav-item">Tải Ứng dụng</li>
+            </ul>
+            <ul class="nav-list">
+                <li class="nav-item">Đăng kí</li>
+                <li class="nav-item">Đăng nhập</li>
+            </ul>
+        </div>
+        <!-- form layout -->
+        <div class="form-container">
+            <form action="" class="form">
+                <div class="form__row">
+                    <label class="form__label" for="name">Name:</label>
+                    <input class="form__input" type="text" id="name">
+                </div>
+                <div class="form__row">
+                    <label class="form__label" for="password">Password:</label>
+                    <input class="form__input" type="password" id="password">
+                </div>
+            </form>
+        </div>
+        <!-- column layout -->
+        <div class="column-layout">
+            <div class="column-item sidebar-one">
+                <h2>Sidebar one</h2>
+                <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p>
+            </div>
+
+            <div class="column-item main-column">
+                <h2>main column</h2>
+                <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p>
+                <p>At the moment I'm working as a Sample position at Sample company.My most important tasks include familiarizing myself with new products, conducting sales talks and transferring orders.</p>
+                <p>Your job list sounds great! I hope that this will enable me to develop personal and professional development opportunities.I like your focus and image in this industry very well, so I see you as a very interesting employer.I have been following your development for a long time in the media and therefore believe that I also fit in well with the company.</p>
+            </div>
+
+            <div class="column-item sidebar-two">
+                <h2>Sidebar two</h2>
+                <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p>
+            </div>
+        </div>
+
+        <!-- feature layout -->
+        <div class="feature-layout" >
+            <div class="feature-item">
+                <h2>feature 1</h2>
+                <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p>
+            </div>
+            <div class="feature-item">
+                <h2>feature 2</h2>
+                <p>At the moment I'm working as a Sample position at Sample company.My most important tasks include familiarizing myself with new products, conducting sales talks and transferring orders.</p>
+            </div>
+            <div class="feature-item">
+                <h2>feature 3</h2>
+                <p>Your job list sounds great! I hope that this will enable me to develop personal and professional development opportunities.I like your focus and image in this industry very well, so I see you as a very interesting employer.I have been following your development for a long time in the media and therefore believe that I also fit in well with the company.</p>
+            </div>
+        </div>
+
+        <!-- Wrap layout -->
+        <div class="wrap-layout">
+            <div class="wrap-layout__item">1</div>
+            <div class="wrap-layout__item">2</div>
+            <div class="wrap-layout__item">3</div>
+            <div class="wrap-layout__item">4</div>
+            <div class="wrap-layout__item">5</div>
+        </div>
+        <!-- center layout -->
+        <div class="center-layout">
+            <div class="center-item">Center item</div>
+        </div>
+
+        <div class="chart-layout">
+            <!-- "--" + với tên biến tự đặt, và var(tên biến) sẽ gọi đến biến đó -->
+            <div class="chart-item" style="--percent: 80%">80%</div>
+            <div class="chart-item" style="--percent: 15%">15%</div>
+            <div class="chart-item" style="--percent: 60%">60%</div>
+            <div class="chart-item" style="--percent: 99%">99%</div>
+            <div class="chart-item" style="--percent: 70%">70%</div>
+            <div class="chart-item" style="--percent: 37%">37%</div>
+            <div class="chart-item" style="--percent: 68%">68%</div>
+        </div>
+        <!-- End -->
+        <div class="the-end">
+            <div class="the-end__first">
+                <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time, I would like to apply today as a Sample position in permanent employment.</p>
+                <p>At the moment I'm working as a Sample position at Sample company.My most important tasks include familiarizing myself with new products, conducting sales talks and transferring orders.</p>
+                <p>Your job list sounds great! I hope that this will enable me to develop personal and professional development opportunities.I like your focus and image in this industry very well, so I see you as a very interesting employer.I have been following your development for a long time in the media and therefore believe that I also fit in well with the company.</p>
+            </div>
+            <div class="the-end__second">
+                <div class="the-end__second-one">
+                    <p>I'm writing to you in reference to the job position advertised MyCV.vn which immediately appealed to me.Since I've been interested in your company for a long time.</p>
+                </div>
+                <div class="the-end__second-two">
+                    <p>At the moment I'm working as a Sample position at Sample company.My most important tasks include familiarizing myself with new products, conducting sales talks and transferring orders.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

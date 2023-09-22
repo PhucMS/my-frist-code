@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <!-- Phan dau web-->
+    <head>
+        <!-- Phần tên trên tag của web -->
+        <title>Hoang Phuc</title>
+        <!-- utf-8 là định nghĩa tiếng việt cho trang web-->
+        <meta charset="utf-8">
+
+        <!-- internal, external, inline là 3 cách để use css trong html
+            internal có thể thực thi được ở bất kì đâu trong project html này cau lệnh <style> -->
+        <!-- <style>
+            h1{
+                color: blue;
+                font-size: 50px;
+            }
+        </style> -->
+        <!-- câu lệnh external để lấy nội dung của main.css  -->
+        <link rel="stylesheet" href="main.css">
+
+    </head>
+    <!-- Phan than web -->
+    <body>  
+        <!-- div để thể hiện các cái khối trong 1 trang web  -->
+        <div> 
+            Hello everybody
+        <!--heading có từ h1 đến h6 kích thước chử nhỏ dần thông thường chỉ có h1 -->
+        <!-- và đây là inline chạy thuộc tính của css trong chính hàm của html với câu lệnh style -->
+        <h1 style="color: green;font-size: 100px">Lâm Huỳnh Hoàng Phúc là ai? <br />"br /" là xuống dòng nè </h1>
+        
+        <!-- attribute: thuộc tính , khi di chuyển chuột vào tiêu đề thì sẽ mô tả tiêu đề đó -->
+        <h1 title="đây là tiêu đề nè">Lâm Huỳnh Hoàng Phúc là ai?</h1>
+        <!-- nếu chỉ muốn thay đổi chỉ 1 lệnh h1 mà không thay đổi tất cả trong file thì gán ID cho lệnh đó và qua css gọi #"Id" và dùng câu lệnh link của external-->
+        <h1 id="first-heading">Lâm Huỳnh Hoàng Phúc ID</h1>
+        <h1>Lâm Huỳnh Hoàng Phúc ID</h1>
+        <!--input Tương tác phía client giống như đăng nhập account-->
+        <input type="text">
+        <!-- tích vào ô -->
+        <input type="checkbox">
+        <input type="checkbox">
+        <!-- giống checkbox nhưng hình tròn và chỉ dc tích vào 1 trong những tag hiển thị -->
+        <input name = "gender" type="radio">
+        <input name = "gender" type="radio">
+        <!-- button ng dùng tương tác  -->
+        <button>Đăng nhập</button>
+        <!-- p is paragraph : đoạn văn-->
+        <p>Chuyện kể về cậu bé tên phúc từ khi sinh ra đã vô cùng dễ thương</p>
+        <!-- hiển thị hình ảnh image . alt k cần thiết "khi dán link sai lỗi thì sẽ hiển thị nội dung trong nó"-->
+        <img src="https://treobangron.com.vn/wp-content/uploads/2022/09/background-dep-4-2.jpg" alt="ảnh background đẹp">
+        <!-- anchor địa chỉ liên kết đến trang khác -->
+        <a href="https://www.facebook.com/profile.php?id=100013583948401">tới trang cá nhân của tôi</a>
+        <!-- ul unordered list 
+            li list item     -->
+        <ul>
+            <!-- gõ nhanh 4 thẻ li "li*4" -->
+            <li>Lâm Huỳnh Hoàng Phúc</li>
+            <li>tiểu sử</li>
+            <li>quê quán</li>
+            <li>Trình độ</li>
+        </ul>
+        <!-- giống với ul nhưng thay dấu chấm bằng số  -->
+        <ol>
+            <!-- gõ nhanh 4 thẻ li "li*4" -->
+            <li>Lâm Huỳnh Hoàng Phúc</li>
+            <li>tiểu sử</li>
+            <li>quê quán</li>
+            <li>Trình độ</li>
+        </ol>
+
+        <table>
+            <!-- table head phần đầu của bảng -->
+            <thead>
+                <!-- th*3 -->
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Địa chỉ</th>
+            </thead>
+            <!-- phần thân của bảng -->
+            <tbody>
+                <!-- table round -->
+                <tr>
+                    <!-- số thẻ td tương ứng với th ở trên  -->
+                    <td>1</td>
+                    <td>Lâm Huỳnh Hoàng Phúc</td>
+                    <td>Tây Ninh</td>
+                </tr>
+                <tr>
+                    <!-- số thẻ td tương ứng với th ở trên  -->
+                    <td>2</td>
+                    <td>Lâm Văn Hồ</td>
+                    <td>Tây Ninh</td>
+                </tr>
+                <tr>
+                    <!-- số thẻ td tương ứng với th ở trên  -->
+                    <td>3</td>
+                    <td>Huỳnh Thị Cẩn</td>
+                    <td>Tây Ninh</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </body>
+</html>

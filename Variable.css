@@ -1,0 +1,18 @@
+/* hàm ví dụ không chạy dc vì chưa gán địa chỉ variable.css vào index */
+
+
+
+:root{
+    --test-color: violet;
+}
+/* toàn bộ hàm h1 đề chuyển sang màu violet */
+h1{
+    color: var(--test-color);
+}
+h2{
+    color: var(--test-color);
+}
+/* h1{ và khi gán var trong hàm h1 thì chỉ có hàm này mới dùng dc --my-color h2 h3 không gọi dduocj --my-color
+    --my-color
+    color: var(--my-color)
+} */
